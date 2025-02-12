@@ -1,0 +1,11 @@
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\FundingRateWebApi.exe
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\FundingRateWebApi.dll
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\FundingRateWebApi.deps.json
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\FundingRateWebApi.runtimeconfig.json
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\FundingRateWebApi.pdb
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

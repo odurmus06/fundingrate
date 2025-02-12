@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "25Z8iwOwOSTCasVByXUwOpoDJb/dV4mY6/kou1+lVMs=",
+  "Source": "FundingRateWebApi",
+  "BasePath": "_content/FundingRateWebApi",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

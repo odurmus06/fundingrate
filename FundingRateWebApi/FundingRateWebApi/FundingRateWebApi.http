@@ -1,0 +1,6 @@
+@FundingRateWebApi_HostAddress = http://localhost:5062
+
+GET {{FundingRateWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
