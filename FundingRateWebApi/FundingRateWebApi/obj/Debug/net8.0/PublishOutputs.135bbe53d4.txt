@@ -25,4 +25,5 @@ C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\
 C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Debug\net8.0\PubTmp\Out\System.IO.Pipelines.dll
 C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Debug\net8.0\PubTmp\Out\System.Text.Encodings.Web.dll
 C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Debug\net8.0\PubTmp\Out\System.Text.Json.dll
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Debug\net8.0\PubTmp\Out\Telegram.Bot.dll
 C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Debug\net8.0\PubTmp\Out\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll

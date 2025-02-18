@@ -11,27 +11,28 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Telegram.Bot;
+    using Telegram.Bot.Types;
+
     public class BinanceWebSocketService
     {
         private readonly BinanceRestClient _client;
         private readonly BinanceSocketClient _socketClient;
         private int batchSize = 20;
+        private static readonly string botToken = "7938765330:AAFC6-bpOiffLaa8iSQwpzl0h3FR_yYT4s4";
+        private static readonly string chatId = "7250151162";
+        decimal negativeThreshold = -2m;
+        private List<FundingRateRecord> fundingRateRecords = new List<FundingRateRecord>();
 
         public BinanceWebSocketService()
         {
             _client = new BinanceRestClient();
             _socketClient = new BinanceSocketClient();
         }
-        static void WriteToTxtFile(DataEvent<IBinanceFuturesMarkPrice> data)
+        public async Task sendTelegramMessage(string message)
         {
-            string filePath = "binance.txt"; // TXT dosya adı
-
-            string fundingRatePercent = (data.Data.FundingRate * 100)+ "%";
-
-            string logEntry = $"{DateTime.UtcNow}: {data.Data.Symbol} - Mark Price: {data.Data.MarkPrice}, Funding Rate: {fundingRatePercent}\n";
-
-            // Veriyi TXT dosyasına ekle
-            File.AppendAllText(filePath, logEntry);
+            var botClient = new TelegramBotClient(botToken);
+            await botClient.SendTextMessageAsync(chatId, message);
         }
         public async Task SubscribeToAllFundingRatesAsync()
         {
@@ -50,6 +51,8 @@
 
             Console.WriteLine($"Toplam {symbols.Count} sembol bulundu.");
 
+            await sendTelegramMessage("Start Bot");
+
             var symbolBatches = symbols.Select((symbol, index) => new { symbol, index })
                 .GroupBy(x => x.index / batchSize)
                 .Select(g => g.Select(x => x.symbol).ToList())
@@ -63,17 +66,40 @@
         private async Task SubscribeToBatch(List<string> symbols)
         {
             var subscriptionResult = await _socketClient.UsdFuturesApi.ExchangeData
-                .SubscribeToMarkPriceUpdatesAsync(symbols, 1000, data =>
+                .SubscribeToMarkPriceUpdatesAsync(symbols, 1000, async data =>
                 {
                     Console.WriteLine($"Symbol: {data.Data.Symbol} | Funding Rate: {data.Data.FundingRate} | Mark Price: {data.Data.MarkPrice}");
 
+                    var fundingRate = data.Data.FundingRate; // Funding Rate'i al
+                    decimal fundingRatePercentage = (decimal)fundingRate * 100; // Yüzdesel olarak formatla
+                    var dateTime = data.Data.EventTime.ToString("yyyy-MM-dd HH:mm:ss"); // Tarihi formatla
+                    var symbol = data.Data.Symbol;
 
-                    string filePath = "binance.txt";
-                    string fundingRatePercent = (data.Data.FundingRate * 100) + "%";
+                    if(fundingRatePercentage <= negativeThreshold)
+                    {
+                        var exist = fundingRateRecords.Any(r => r.Symbol == symbol);
+                       if (!exist)
+                        {
+                            var record = new FundingRateRecord
+                            {
+                                Timestamp = DateTime.Now,  // Şu anki tarih ve saat
+                                FundingRate = fundingRatePercentage,  // Yüzde formatında
+                                Price = data.Data.MarkPrice,
+                                Symbol = symbol
+                            };
 
-                    string logEntry = $"{DateTime.UtcNow}: {data.Data.Symbol} - Mark Price: {data.Data.MarkPrice}, Funding Rate: {fundingRatePercent}\n";
-                    File.AppendAllText(filePath, logEntry);
+                            fundingRateRecords.Add(record);
 
+                        string message = $"📅 *Zaman:* `{DateTime.Now:yyyy-MM-dd HH:mm:ss}`\n" +
+                        $"💰 *Fiyat:* `{data.Data.MarkPrice} USDT`\n" +
+                        $"🔄 *Funding Rate:* `{fundingRatePercentage.ToString("F4")} %`\n" +
+                        $"🔹 *Sembol:* `{symbol}`";
+
+                            await sendTelegramMessage(message);
+
+
+                        }
+                    }
                 });
 
             if (!subscriptionResult.Success)
@@ -100,4 +126,12 @@
             }
         }
     }
+}
+public class FundingRateRecord
+{
+    public DateTime Timestamp { get; set; }
+    public decimal FundingRate { get; set; }
+    public decimal Price { get; set; }
+
+    public string Symbol { get; set; }
 }

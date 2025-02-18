@@ -391,6 +391,22 @@
         "build": {
           "buildTransitive/net8.0/System.Text.Json.targets": {}
         }
+      },
+      "Telegram.Bot/18.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Telegram.Bot.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Telegram.Bot.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
       }
     },
     "net8.0/linux-x64": {
@@ -776,6 +792,22 @@
         },
         "build": {
           "buildTransitive/net8.0/System.Text.Json.targets": {}
+        }
+      },
+      "Telegram.Bot/18.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Telegram.Bot.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Telegram.Bot.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       }
     }
@@ -1448,11 +1480,30 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Telegram.Bot/18.0.0": {
+      "sha512": "BD0UchUXINymCGS+1O1tv2enCRyv+VbSJQAgfnueTZs3j7K4XXyJyW0CgyJleTrqB1oq1hS1ux6gBpi3Ajp+ZQ==",
+      "type": "package",
+      "path": "telegram.bot/18.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.1/Telegram.Bot.dll",
+        "lib/netcoreapp3.1/Telegram.Bot.pdb",
+        "lib/netcoreapp3.1/Telegram.Bot.xml",
+        "lib/netstandard2.0/Telegram.Bot.dll",
+        "lib/netstandard2.0/Telegram.Bot.pdb",
+        "lib/netstandard2.0/Telegram.Bot.xml",
+        "package-icon.png",
+        "telegram.bot.18.0.0.nupkg.sha512",
+        "telegram.bot.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Binance.Net >= 10.16.2"
+      "Binance.Net >= 10.16.2",
+      "Telegram.Bot >= 18.0.0"
     ]
   },
   "packageFolders": {
@@ -1508,6 +1559,10 @@
           "Binance.Net": {
             "target": "Package",
             "version": "[10.16.2, )"
+          },
+          "Telegram.Bot": {
+            "target": "Package",
+            "version": "[18.0.0, )"
           }
         },
         "imports": [

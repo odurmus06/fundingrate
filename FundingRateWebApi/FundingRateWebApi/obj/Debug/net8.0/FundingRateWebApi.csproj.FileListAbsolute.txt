@@ -50,3 +50,4 @@ C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\
 C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Debug\net8.0\FundingRateWebApi.genruntimeconfig.cache
 C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Debug\net8.0\ref\FundingRateWebApi.dll
 C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\osman\YandexDisk\FundingRateWebApi\FundingRateWebApi\FundingRateWebApi\bin\Debug\net8.0\Telegram.Bot.dll
